@@ -34,6 +34,7 @@ Aplicação web e mobile para criar e controlar hábitos
     * __dayjs__ lib para trabalhar com datas
     * __nativewind__ lib para usar o tailwind no react-native
     * __react-native-svg__ lib para lidar com svg no react-native
+    * __react-native-svg-transformer__ lib para usar svg como componente
 
 ## Anexos
 * [Projeto no figma](https://www.figma.com/community/file/1195326661124171197)
