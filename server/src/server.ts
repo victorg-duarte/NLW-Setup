@@ -7,12 +7,11 @@ const PORT = 3333
 const app = Fastify()
 
 
-app.register(cors, {
-  origin: ['http://localhost:3000']
-})
+app.register(cors)
 app.register(appRoutes)
 
 
 app.listen({
-  port: PORT
+  port: PORT,
+  host: '0.0.0.0', // incluir host para mobile acessar api
 }).then(() => { console.log('Server is running on port ' + PORT) })
