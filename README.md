@@ -8,7 +8,7 @@
 * [Anexos](#anexos)
 
 ## Projeto
-Desenvolvimento backend, frontend e mobile com as principais stacks do mercado. O projeto (Habits) é uma aplicação para criar e checar seus hábitos se foram completados ou não.
+Desenvolvimento backend, frontend e mobile com as principais stacks do mercado pela [Rocketseat](https://app.rocketseat.com.br/) no evento NLW (Next Level Week). O projeto (Habits) é uma aplicação para criar e checar seus hábitos se foram completados ou não.
 
 ## Tecnologias
 * Back-end
@@ -39,6 +39,7 @@ Desenvolvimento backend, frontend e mobile com as principais stacks do mercado. 
     * __React-Navigation__ lib para navegação de telas
     * __Axios__ para acessar API
     * __clsx__ lib para condicionar classes css
+    * __react-native-reanimated__ lib para animações
 
 ## Rotas da aplicação
 
@@ -46,7 +47,7 @@ Desenvolvimento backend, frontend e mobile com as principais stacks do mercado. 
 |---|---|---|
 | POST | http://localhost:3333/habits | Criar hábito |
 | GET | http://localhost:3333/day?date=2023-01-20T14:00:00.000Z | Buscar os hábitos completos e incompletos pela data passada na query da requisição  |
-| PATCH | http://localhost:3333/habits/:id/toogle | Atualizar se o hábito foi concluído ou não, passando o habit_id como parâmetro na requisição |
+| PATCH | http://localhost:3333/habits/:id/toogle | Atualizar se o hábito foi concluído ou não, passando o habitId como parâmetro na requisição |
 | GET | http://localhost:3333/summary | Buscar os hábitos de cada data + quantidade de recorrência deles no dia (amount) + quantidade de hábitos completados no dia (completed)  |
 ## Anexos
 * [Projeto no figma](https://www.figma.com/community/file/1195326661124171197)
