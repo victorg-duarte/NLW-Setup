@@ -1,5 +1,5 @@
 import './src/lib/dayjs' // utilizar o formato/hora pt-br
-import { StatusBar } from 'react-native';
+import { StatusBar, Button } from 'react-native';
 import {
   useFonts,
   Inter_400Regular,
@@ -9,6 +9,34 @@ import {
 } from '@expo-google-fonts/inter'
 import { Loading } from './src/components/Loading';
 import { Routes } from './src/routes';
+import * as Notifications from 'expo-notifications';
+
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: false,
+    shouldSetBadge: false
+  })
+})
+
+async function scheduleNotification() {
+  const trigger = new Date(Date.now())
+  trigger.setSeconds(trigger.getSeconds() + 20)
+
+  await Notifications.scheduleNotificationAsync({
+    content: {
+      title: 'Olá, Victor 😜',
+      body: 'você praticou seus hábitos hoje?'
+    },
+    trigger
+  })
+}
+
+async function getScheduleNotification() {
+  const schedule = await Notifications.getAllScheduledNotificationsAsync()
+  console.log(schedule)
+}
 
 
 export default function App() {
@@ -28,6 +56,7 @@ export default function App() {
 
   return (
     <>
+      {/* <Button title='Enviar notificação' onPress={scheduleNotification}/> */}
       <Routes />
       <StatusBar barStyle='light-content' backgroundColor='transparent' translucent />
     </>

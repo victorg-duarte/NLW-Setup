@@ -5,6 +5,7 @@
 * [Projeto](#projeto)
 * [Tecnologias](#tecnologias)
 * [Rotas da aplicação (API)](#rotas-da-aplicação)
+* [After NLW Setup](#after-nlw-setup)
 * [Anexos](#anexos)
 
 ## Projeto
@@ -49,5 +50,25 @@ Desenvolvimento backend, frontend e mobile com as principais stacks do mercado p
 | GET | http://localhost:3333/day?date=2023-01-20T14:00:00.000Z | Buscar os hábitos completos e incompletos pela data passada na query da requisição  |
 | PATCH | http://localhost:3333/habits/:id/toogle | Atualizar se o hábito foi concluído ou não, passando o habitId como parâmetro na requisição |
 | GET | http://localhost:3333/summary | Buscar os hábitos de cada data + quantidade de recorrência deles no dia (amount) + quantidade de hábitos completados no dia (completed)  |
+## After NLW Setup
+#### Usando o __Push Notifications__
+- Push Notifications - Basicamente envia uma notificação para usuário da aplicação 
+- Service Workers
+  - Basicamente	são scripts que pode manter executando na nossa aplicação quando ela tiver fechada ou mesmo quando o usuário tiver offline, sem conexão com a internet.
+  -	São scripts que rodam por “baixos do panos” em background enquanto estiver aberto no navegador do usuário, sendo a nossa aplicação aberta ou não.
+  -	Muito utilizado em PWAs (Progressive Web App)
+
+Na web/server
+-	npm i web-push: instalação no backend para lidar com as push notifications
+-	npm i @types/web-push -D: É preciso instalar as tipagens do web-push como dependência de desenvolvimento
+
+No mobile
+- npx expo install expo-notifications: lib para lidar com notificações no mobile
+- No expo pode agendar uma notificação local, diferente da web que é necessário o backend para agendar
 ## Anexos
 * [Projeto no figma](https://www.figma.com/community/file/1195326661124171197)
+* [After NLW Setup - video aula](https://www.youtube.com/watch?v=nNvxERiVb_s)
+
+
+
+

@@ -3,6 +3,34 @@ import { Header } from './components/Header'
 import { SummaryTable } from './components/SummaryTable'
 import './styles/global.css'
 import './lib/dayjs'
+import { api } from './lib/axios'
+
+navigator.serviceWorker.register('service-worker.js').then(async (serviceWorker) => {
+  // assinatura do usuario com servico de notificao. Quando usuario querer receber notificacao é criado uma assinatura
+  let subscription = await serviceWorker.pushManager.getSubscription()
+
+  if (!subscription) {
+    const publicKeyResponse = await api.get('/push/public_key')
+
+    subscription = await serviceWorker.pushManager.subscribe({
+      applicationServerKey: publicKeyResponse.data.publicKey,
+      userVisibleOnly: true
+    })
+
+  }
+  console.log(subscription)
+
+  await api.post('/push/register', {
+    subscription
+  })
+
+  await api.post('/push/send', {
+    subscription
+  })
+
+}).catch((err) => {
+  console.log(err);
+});
 
 export function App() {
   return (
